@@ -1,6 +1,6 @@
-from pathlib import Path
 import tempfile
 import zipfile
+from pathlib import Path
 
 import geopandas as gpd
 

@@ -10,7 +10,6 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.core.exceptions import InvalidGeospatialFileError, ResourceNotFoundError
 from app.geospatial.io import read_geospatial_file
-from app.geospatial.crs import to_visualization_crs
 from app.models.file import FileRecord
 from app.repositories.file_repository import FileRepository
 
@@ -92,7 +91,9 @@ class FileService:
         try:
             return gpd.read_parquet(record.parquet_path)
         except Exception as exc:
-            raise InvalidGeospatialFileError("The processed GeoParquet file cannot be read.") from exc
+            raise InvalidGeospatialFileError(
+                "The processed GeoParquet file cannot be read."
+            ) from exc
 
     def _get_record(self, file_id: UUID) -> FileRecord:
         record = self.repository.get(str(file_id))

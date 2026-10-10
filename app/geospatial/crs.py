@@ -1,7 +1,6 @@
 import geopandas as gpd
 from pyproj import CRS
 
-
 WGS84 = "EPSG:4326"
 
 

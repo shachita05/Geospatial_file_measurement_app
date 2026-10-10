@@ -10,7 +10,6 @@ from app.api.routes.ui import router as ui_router
 from app.core.config import settings
 from app.core.database import init_db
 from app.core.exceptions import GeospatialError
-from app.templates import templates
 
 
 @asynccontextmanager

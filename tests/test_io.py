@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from app.geospatial.io import read_geospatial_file
 from app.core.exceptions import InvalidGeospatialFileError
+from app.geospatial.io import read_geospatial_file
 
 
 def test_unsupported_extension(tmp_path: Path):
