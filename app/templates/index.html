@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Geospatial Measurement API</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">FastAPI · GeoPandas · GeoParquet</p>
+      <h1>Geospatial File Measurement API</h1>
+      <p class="subtitle">Upload a KML or Shapefile ZIP, inspect its features, and calculate area or length using an appropriate projected CRS.</p>
+    </header>
+
+    <section class="card upload-card">
+      <form id="upload-form">
+        <label for="file-input">Geospatial file</label>
+        <div class="upload-row">
+          <input id="file-input" type="file" accept=".kml,.zip" required>
+          <button type="submit">Upload & process</button>
+        </div>
+        <small>Accepted: .kml or .zip containing one Shapefile · Max 100 MB</small>
+      </form>
+      <div id="status" class="status" hidden></div>
+    </section>
+
+    <section class="grid">
+      <div class="card map-card">
+        <div class="card-title"><h2>Feature map</h2><span id="feature-count"></span></div>
+        <div id="map"></div>
+      </div>
+      <div class="card info-card">
+        <h2>File information</h2>
+        <dl id="file-info"><dt>Status</dt><dd>Waiting for upload</dd></dl>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title"><h2>Measurements</h2><span id="measurement-count"></span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Geometry</th><th>Area</th><th>Length</th></tr></thead>
+          <tbody id="measurements"><tr><td colspan="4" class="empty">Upload a file to see measurements.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
